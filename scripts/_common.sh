@@ -27,8 +27,8 @@ _build_ui() {
         git -c user.email="$app@localhost" -c user.name="$app" \
             commit --quiet --allow-empty --message="$(ynh_app_upstream_version)"
 
-        yarn install --frozen-lockfile
-        yarn build
+        ynh_hide_warnings yarn install --frozen-lockfile
+        ynh_hide_warnings yarn build
     popd
 
     # Emptied first, otherwise the minified files of the previous version pile up
@@ -36,6 +36,7 @@ _build_ui() {
     mkdir --parents "$install_dir"
     cp -a "$build_dir/build/ui/." "$install_dir/"
     chown -R "$app:$app" "$install_dir"
+    chmod -R o-rwx "$install_dir"
 
     ynh_safe_rm "$build_dir"
 }
@@ -43,6 +44,7 @@ _build_ui() {
 # LXD reads LXD_UI at startup only, so it has to be restarted once for the
 # interface to show up. That stops the running instances, hence PRE_INSTALL.md
 _add_lxd_override() {
+    mkdir --parents "$(dirname "$lxd_override")"
     ynh_config_add --template="systemd-override.conf" --destination="$lxd_override"
     systemctl daemon-reload
 

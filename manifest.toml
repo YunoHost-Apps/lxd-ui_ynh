@@ -36,13 +36,8 @@ ram.runtime = "50M"
     type = "domain"
 
     [install.init_main_permission]
-    type = "select"
-    choices = ["admins", "all_users"]
+    type = "group"
     default = "admins"
-    ask.en = "Who should be able to access the interface?"
-    ask.fr = "Qui doit pouvoir accéder à l'interface ?"
-    help.en = "NGINX authenticates to LXD with a certificate that has full admin rights, so anyone allowed here controls LXD entirely, whatever their YunoHost account."
-    help.fr = "NGINX s'authentifie auprès de LXD avec un certificat qui a tous les droits, donc quiconque est autorisé ici contrôle entièrement LXD, quel que soit son compte YunoHost."
 
 [resources]
     [resources.sources.main]
@@ -61,6 +56,7 @@ ram.runtime = "50M"
     main.url = "/"
     # The proxy is LXD admin, visitors must never be allowed here
     main.protected = true
+    main.allowed = "admins"
 
     [resources.ports]
     main.default = 8443

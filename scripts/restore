@@ -23,6 +23,7 @@ ynh_restore "$data_dir"
 
 ynh_restore "$install_dir"
 chown -R "$app:$app" "$install_dir"
+chmod -R o-rwx "$install_dir"
 
 #=================================================
 # CONFIGURE LXD
