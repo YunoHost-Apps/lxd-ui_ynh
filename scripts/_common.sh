@@ -23,7 +23,7 @@ _build_ui() {
         export HOME="$build_dir"
 
         corepack enable
-        ynh_hide_warnings corepack prepare yarn@latest --activate
+        ynh_hide_warnings corepack prepare yarn@1.22.22 --activate
 
         # The build reads the commit hash from git, and we build from a tarball
         git init --quiet .
