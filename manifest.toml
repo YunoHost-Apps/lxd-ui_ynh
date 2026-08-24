@@ -7,7 +7,7 @@ name = "LXD UI"
 description.en = "Manage LXD containers and virtual machines from a web interface"
 description.fr = "Gérer les conteneurs et machines virtuelles LXD depuis une interface web"
 
-version = "0.22~ynh1"
+version = "0.22~ynh2"
 
 maintainers = ["kay0u"]
 
@@ -63,7 +63,3 @@ ram.runtime = "50M"
 
     [resources.nodejs]
     version = "22"
-
-    [resources.apt]
-    # The yarn repository is provided by YunoHost itself
-    packages = "yarn"
