@@ -7,7 +7,7 @@ name = "LXD UI"
 description.en = "Manage LXD containers and virtual machines from a web interface"
 description.fr = "Gérer les conteneurs et machines virtuelles LXD depuis une interface web"
 
-version = "0.22~ynh1"
+version = "0.22~ynh2"
 
 maintainers = ["kay0u"]
 
