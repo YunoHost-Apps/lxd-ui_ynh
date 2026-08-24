@@ -22,7 +22,9 @@ _build_ui() {
     pushd "$build_dir"
         export HOME="$build_dir"
 
-        corepack enable
+        mkdir --parents "$build_dir/.corepack/bin"
+        corepack enable --install-directory "$build_dir/.corepack/bin"
+        export PATH="$build_dir/.corepack/bin:$PATH"
         ynh_hide_warnings corepack prepare yarn@1.22.22 --activate
 
         # The build reads the commit hash from git, and we build from a tarball
