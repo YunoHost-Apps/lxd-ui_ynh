@@ -7,7 +7,7 @@ name = "LXD UI"
 description.en = "Manage LXD containers and virtual machines from a web interface"
 description.fr = "Gérer les conteneurs et machines virtuelles LXD depuis une interface web"
 
-version = "0.22~ynh2"
+version = "0.23~ynh1"
 
 maintainers = ["kay0u"]
 
@@ -41,8 +41,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/canonical/lxd-ui/archive/refs/tags/0.22.tar.gz"
-    sha256 = "5e571dedaf6d4f95b783b4131d586ea6804bc231d80752555882d21c15bd3e8c"
+    url = "https://github.com/canonical/lxd-ui/archive/refs/tags/0.23.tar.gz"
+    sha256 = "e5bffdf9122b45e24e199a73316df7c1952a0c7a5234f348ca4c7593fd84af07"
 
     autoupdate.strategy = "latest_github_tag"
 
